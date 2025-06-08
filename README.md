@@ -44,19 +44,19 @@ torch, numpy, sacrebleu, tqdm, matplotlib, seaborn.
 ### 2. Modeli Eğitme (PyTorch)
 Modeli sıfırdan eğitmek için train_pytorch.py script'ini çalıştırabilirsiniz.
 
-python train_pytorch.py
+`python train_pytorch.py`
 
 Bu script, eğitim sonunda model_checkpoints klasörü altına best_model.pth (en iyi modelin ağırlıkları) ve last_checkpoint.pth (eğitimin son durumunu içeren tam checkpoint) dosyalarını kaydedecektir.
 
 ### 3. Çeviri Yapma (NumPy)
 Eğitilmiş bir modelle çeviri yapmak için inference_numpy.py script'ini kullanabilirsiniz. Bu script, checkpoint dosyalarını yükleyerek interaktif bir şekilde sizden İngilizce cümleler alıp Türkçe'ye çevirecektir.
 
-python inference_numpy.py
+`python inference_numpy.py`
 
 ### 4. Dikkat Haritalarını Üretme
 Belirli bir cümlenin dikkat haritalarını (Encoder Self-Attention, Decoder Cross-Attention, Decoder Masked Self-Attention) üretmek ve görselleştirmek için visualize_attention.py script'ini çalıştırın.
 
-python visualize_attention.py
+`python visualize_attention.py`
 
 Bu, /results klasörü altına ısı haritası görsellerini (.png) kaydedecektir.
 
