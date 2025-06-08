@@ -9,10 +9,10 @@ Bu repositori, hem Transformer modelini belirli bir veri seti üzerinde başarı
 ### Temel Özellikler
 PyTorch Eğitim Script'i: Transformer modelini, verilen paralel metin veri seti üzerinde eğitmek için gereken tüm kodları içerir. Checkpoint kaydetme, öğrenme oranı zamanlayıcısı ve erken durdurma gibi mekanizmaları barındırır.
 
-### NumPy Çıkarım Motoru: 
+### NumPy Çıkarım Motoru
 Herhangi bir derin öğrenme kütüphanesine bağımlı olmaksızın, sadece NumPy kullanarak eğitilmiş bir modelden çeviri yapabilen, sıfırdan yazılmış bir çıkarım motoru.
 
-### Performans Değerlendirme: 
+### Performans Değerlendirme
 Hem PyTorch hem de NumPy implementasyonlarının hızını (CPU/GPU) karşılaştıran benchmark script'leri.
 
 Dikkat Görselleştirme: Modelin çeviri sırasında nereye "odaklandığını" gösteren dikkat haritası matrislerini üreten ve görselleştiren kodlar.
@@ -24,7 +24,7 @@ Belirtilen kısıtlar (kelime bazlı tokenizasyon, greedy decoding) altında eğ
 
 Çeviri Kalitesi (BLEU): 46.13
 
-### Performans Oranı: 
+### Performans Oranı
 Optimize edilmiş PyTorch (CPU) altyapısı, saf NumPy (CPU) implementasyonundan yaklaşık 2.5 kat daha hızlıdır.
 
 ### Kullanım ve Kurulum
@@ -35,7 +35,7 @@ Proje, Python 3.x ortamında geliştirilmiştir. Gerekli tüm kütüphaneler req
 
 `pip install -r requirements.txt`
 
-### Temel bağımlılıklar: 
+### Temel bağımlılıklar
 torch, numpy, sacrebleu, tqdm, matplotlib, seaborn.
 
 ### 1. Veri Seti
