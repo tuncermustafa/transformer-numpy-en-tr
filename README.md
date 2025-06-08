@@ -24,7 +24,8 @@ Belirtilen kısıtlar (kelime bazlı tokenizasyon, greedy decoding) altında eğ
 
 Çeviri Kalitesi (BLEU): 46.13
 
-Performans Oranı: Optimize edilmiş PyTorch (CPU) altyapısı, saf NumPy (CPU) implementasyonundan yaklaşık 2.5 kat daha hızlıdır.
+### Performans Oranı: 
+Optimize edilmiş PyTorch (CPU) altyapısı, saf NumPy (CPU) implementasyonundan yaklaşık 2.5 kat daha hızlıdır.
 
 ### Kullanım ve Kurulum
 Bu projeyi kendi ortamınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz.
@@ -32,7 +33,7 @@ Bu projeyi kendi ortamınızda çalıştırmak için aşağıdaki adımları izl
 ### Gereksinimler
 Proje, Python 3.x ortamında geliştirilmiştir. Gerekli tüm kütüphaneler requirements.txt dosyasında listelenmiştir. Bunları aşağıdaki komutla yükleyebilirsiniz:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ### Temel bağımlılıklar: 
 torch, numpy, sacrebleu, tqdm, matplotlib, seaborn.
