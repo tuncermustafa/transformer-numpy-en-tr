@@ -1,12 +1,12 @@
-Bir Kara Kutuyu Açmak: Transformer Modelinin PyTorch ve NumPy ile İnşası
+# Bir Kara Kutuyu Açmak: Transformer Modelinin PyTorch ve NumPy ile İnşası
 Bu repositori, "Attention Is All You Need" [1] makalesinde sunulan Transformer mimarisinin, İngilizce-Türkçe Nöral Makine Çevirisi (NMT) görevi için uygulanmasını içerir. Proje, modelin PyTorch ile eğitilmesini ve ardından çıkarım mekanizmasının temel lineer cebir kütüphanesi NumPy ile sıfırdan yeniden gerçeklenmesini kapsar.
 
-Proje Hakkında
+## Proje Hakkında
 Bu projenin temel motivasyonu, Transformer gibi karmaşık derin öğrenme modellerinin arkasındaki temel mekanizmaları şeffaf bir şekilde ortaya koymaktır. PyTorch gibi kütüphanelerin soyutlamalarını bir kenara bırakarak, dikkat mekanizmaları, pozisyonel kodlama ve katman normalizasyonu gibi temel bileşenleri saf NumPy ile yeniden inşa ederek, modelin iç işleyişine dair derinlemesine ve pratik bir anlayış sunmayı hedefler.
 
 Bu repositori, hem Transformer modelini belirli bir veri seti üzerinde başarıyla eğiten pratik bir NMT uygulaması, hem de bu modelin "kara kutusunu" açarak temel matematiksel operasyonlarını incelemek isteyen öğrenciler ve araştırmacılar için değerli bir eğitimsel kaynaktır.
 
-Temel Özellikler
+### Temel Özellikler
 PyTorch Eğitim Script'i: Transformer modelini, verilen paralel metin veri seti üzerinde eğitmek için gereken tüm kodları içerir. Checkpoint kaydetme, öğrenme oranı zamanlayıcısı ve erken durdurma gibi mekanizmaları barındırır.
 
 NumPy Çıkarım Motoru: Herhangi bir derin öğrenme kütüphanesine bağımlı olmaksızın, sadece NumPy kullanarak eğitilmiş bir modelden çeviri yapabilen, sıfırdan yazılmış bir çıkarım motoru.
