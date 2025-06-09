@@ -1,0 +1,6 @@
+# Model checkpoint'leri gibi büyük dosyaları yoksay
+/checkpoints/
+
+# Diğer yoksayılacaklar (Python için standart)
+__pycache__/
+*.pyc
