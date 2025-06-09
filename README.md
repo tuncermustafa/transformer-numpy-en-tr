@@ -1,4 +1,4 @@
-# **Bir Kara Kutuyu Açmak: Transformer Modelinin PyTorch ve NumPy ile İnşası**
+# **Bir Kara Kutuyu Açmak: PyTorch İle Eğitilmiş Transformer Modelinin NumPy İle Yeniden İnşası**
 
 Bu repositori, "Attention Is All You Need" \[1\] makalesinde sunulan Transformer mimarisinin, İngilizce-Türkçe Nöral Makine Çevirisi (NMT) görevi için uygulanmasını içerir. Proje, modelin PyTorch ile eğitilmesini ve ardından çıkarım mekanizmasının temel lineer cebir kütüphanesi NumPy ile sıfırdan yeniden gerçeklenmesini kapsar.
 
