@@ -34,20 +34,19 @@ pip install -r requirements.txt
 
 *Temel bağımlılıklar: `torch`, `numpy`, `sacrebleu`, `tqdm`, `matplotlib`, `seaborn`.*
 
-### **2. Veri Seti ve Tokenizer'lar**
+### **2. Veri Seti**
 
-* **Veri:** Çalışmada kullanılan `en2tr_train.txt` ve `en2tr_valid.txt` dosyaları, `/data` klasörü altında bulunmalıdır.
-* **Tokenizer:** Çıkarım ve değerlendirme script'lerinin doğru çalışması için gerekli olan `src_word2idx.json` ve `trg_word2idx.json` dosyaları, bu repositorideki `/tokenizers` klasöründe mevcuttur.
+Çalışmada kullanılan `en2tr_train.txt` ve `en2tr_valid.txt` dosyaları, projenin ana dizinindeki `/data` klasörü altında bulunmalıdır. Kendi veri setinizi kullanmak isterseniz, aynı formatta (her satırda `kaynak cümle\thedef cümle`) dosyalar oluşturmanız yeterlidir.
 
 ### **3. Modeli Eğitme (PyTorch)**
 
 Bu repositoride önceden eğitilmiş model dosyaları (`.pth`) paylaşılmamaktadır. Çıkarım ve değerlendirme adımlarını çalıştırabilmek için öncelikle modeli kendiniz eğitmelisiniz.
 
-Modeli sıfırdan eğitmek için `notebooks/2_PyTorch_Transformer_Egitimi.ipynb` not defterini çalıştırın. Bu script, eğitim sonunda `checkpoints` klasörü altına `best_model.pth` ve `last_checkpoint.pth` dosyalarını kaydedecektir.
+Modeli sıfırdan eğitmek için `notebooks/2_PyTorch_Transformer_Egitimi.ipynb` not defterini çalıştırın. Bu script, **öncelikle `en2tr_train.txt` dosyasını okuyarak kaynak ve hedef dil için kelime dağarcıklarını (tokenizer) oluşturur.** Eğitim tamamlandığında, `checkpoints` klasörü altına hem modelin ağırlıklarını (`best_model.pth`) hem de tokenizer'ları içeren tam durum dosyasını (`last_checkpoint.pth`) kaydedecektir.
 
 ### **4. Çeviri Yapma ve Analiz**
 
-Modelinizi eğittikten sonra, aşağıdaki not defterlerini çalıştırarak sonuçları elde edebilirsiniz:
+Modelinizi eğittikten sonra, aşağıdaki not defterlerini çalıştırarak sonuçları elde edebilirsiniz. Bu not defterleri, çalışmak için `checkpoints` klasöründeki dosyaları okuyarak gerekli model ağırlıklarını ve tokenizer'ları yükleyecektir.
 
 * `notebooks/3_NumPy_Cikarim_Motoru_ve_Dogrulama.ipynb`: Eğitilmiş modeli kullanarak interaktif çeviri yapar.
 * `notebooks/4_Dikkat_Matrislerinin_Analizi_ve_Gorsellestirilmesi.ipynb`: Belirli bir cümlenin dikkat haritalarını üretir ve görselleştirir.
