@@ -2,7 +2,6 @@
 
 Bu repositori, "Attention Is All You Need" \[1\] makalesinde sunulan Transformer mimarisinin, İngilizce-Türkçe Nöral Makine Çevirisi (NMT) görevi için uygulanmasını içerir. Proje, modelin PyTorch ile eğitilmesini ve ardından çıkarım mekanizmasının temel lineer cebir kütüphanesi NumPy ile sıfırdan yeniden gerçeklenmesini kapsar.
 
-Bu çalışmanın detaylarını içeren akademik makaleye **[Buraya Makalenizin Linkini veya arXiv Linkini Ekleyebilirsiniz]** adresinden ulaşabilirsiniz.
 
 ---
 
