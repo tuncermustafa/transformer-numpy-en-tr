@@ -1,67 +1,80 @@
-## Bir Kara Kutuyu Açmak: Transformer Modelinin PyTorch ve NumPy ile İnşası
-Bu repositori, "Attention Is All You Need" [1] makalesinde sunulan Transformer mimarisinin, İngilizce-Türkçe Nöral Makine Çevirisi (NMT) görevi için uygulanmasını içerir. Proje, modelin PyTorch ile eğitilmesini ve ardından çıkarım mekanizmasının temel lineer cebir kütüphanesi NumPy ile sıfırdan yeniden gerçeklenmesini kapsar.
+# **Bir Kara Kutuyu Açmak: PyTorch İle Eğitilmiş Transformer Modelinin NumPy İle Yeniden İnşası**
 
-### Proje Hakkında
+Bu repositori, "Attention Is All You Need" \[1\] makalesinde sunulan Transformer mimarisinin, İngilizce-Türkçe Nöral Makine Çevirisi (NMT) görevi için uygulanmasını içerir. Proje, modelin PyTorch ile eğitilmesini ve ardından çıkarım mekanizmasının temel lineer cebir kütüphanesi NumPy ile sıfırdan yeniden gerçeklenmesini kapsar.
+
+
+---
+
+## **Proje Hakkında**
+
 Bu projenin temel motivasyonu, Transformer gibi karmaşık derin öğrenme modellerinin arkasındaki temel mekanizmaları şeffaf bir şekilde ortaya koymaktır. PyTorch gibi kütüphanelerin soyutlamalarını bir kenara bırakarak, dikkat mekanizmaları, pozisyonel kodlama ve katman normalizasyonu gibi temel bileşenleri saf NumPy ile yeniden inşa ederek, modelin iç işleyişine dair derinlemesine ve pratik bir anlayış sunmayı hedefler.
 
 Bu repositori, hem Transformer modelini belirli bir veri seti üzerinde başarıyla eğiten pratik bir NMT uygulaması, hem de bu modelin "kara kutusunu" açarak temel matematiksel operasyonlarını incelemek isteyen öğrenciler ve araştırmacılar için değerli bir eğitimsel kaynaktır.
 
-### Temel Özellikler
-PyTorch Eğitim Script'i: Transformer modelini, verilen paralel metin veri seti üzerinde eğitmek için gereken tüm kodları içerir. Checkpoint kaydetme, öğrenme oranı zamanlayıcısı ve erken durdurma gibi mekanizmaları barındırır.
+### **Performans Özeti**
 
-### NumPy Çıkarım Motoru
-Herhangi bir derin öğrenme kütüphanesine bağımlı olmaksızın, sadece NumPy kullanarak eğitilmiş bir modelden çeviri yapabilen, sıfırdan yazılmış bir çıkarım motoru.
+Belirtilen kısıtlar (kelime bazlı tokenizasyon, greedy decoding) altında eğitilen modelin elde ettiği temel performans metrikleri şunlardır:
 
-### Performans Değerlendirme
-Hem PyTorch hem de NumPy implementasyonlarının hızını (CPU/GPU) karşılaştıran benchmark script'leri.
+* **Çeviri Kalitesi (BLEU):** `sacrebleu` ile yapılan değerlendirmede `46.13` gibi rekabetçi bir skora ulaşılmıştır.
+* **Göreceli Hız Performansı:** Optimize edilmiş PyTorch (CPU) motorunun, saf NumPy (CPU) implementasyonuna göre yaklaşık **2.5 kat** daha hızlı olduğu tespit edilmiştir.
 
-Dikkat Görselleştirme: Modelin çeviri sırasında nereye "odaklandığını" gösteren dikkat haritası matrislerini üreten ve görselleştiren kodlar.
+---
 
-Veri Seti: Çalışmada kullanılan ve ön işlemden geçirilmiş en2tr_valid.txt ve en2tr_train.txt dosyaları.
+## **Kullanım ve Kurulum**
 
-### Performans Özeti
-Belirtilen kısıtlar (kelime bazlı tokenizasyon, greedy decoding) altında eğitilen model, oldukça başarılı sonuçlar elde etmiştir:
+Bu projeyi kendi ortamınızda çalıştırmak ve sonuçları tekrarlamak için aşağıdaki adımları izleyebilirsiniz.
 
-Çeviri Kalitesi (BLEU): 46.13
+### **1. Gereksinimler**
 
-### Performans Oranı
-Optimize edilmiş PyTorch (CPU) altyapısı, saf NumPy (CPU) implementasyonundan yaklaşık 2.5 kat daha hızlıdır.
+Proje, Python 3.x ortamında geliştirilmiştir. Gerekli tüm kütüphaneler `requirements.txt` dosyasında listelenmiştir. Bunları aşağıdaki komutla yükleyebilirsiniz:
 
-### Kullanım ve Kurulum
-Bu projeyi kendi ortamınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz.
+```bash
+pip install -r requirements.txt
+```
 
-### Gereksinimler
-Proje, Python 3.x ortamında geliştirilmiştir. Gerekli tüm kütüphaneler requirements.txt dosyasında listelenmiştir. Bunları aşağıdaki komutla yükleyebilirsiniz:
+*Temel bağımlılıklar: `torch`, `numpy`, `sacrebleu`, `tqdm`, `matplotlib`, `seaborn`.*
 
-`pip install -r requirements.txt`
+### **2. Veri Seti**
 
-### Temel bağımlılıklar
-torch, numpy, sacrebleu, tqdm, matplotlib, seaborn.
+Çalışmada kullanılan `en2tr_train.txt` ve `en2tr_valid.txt` dosyaları, projenin ana dizinindeki `/data` klasörü altında bulunmalıdır. Kendi veri setinizi kullanmak isterseniz, aynı formatta (her satırda `kaynak cümle\thedef cümle`) dosyalar oluşturmanız yeterlidir.
 
-### 1. Veri Seti
-Çalışmada kullanılan en2tr_train.txt ve en2tr_valid.txt dosyaları, /data klasörü altında bulunmalıdır. Kendi veri setinizi kullanmak isterseniz, aynı formatta (her satırda kaynak cümle\thedef cümle) dosyalar oluşturmanız yeterlidir.
+### **3. Modeli Eğitme (PyTorch)**
 
-### 2. Modeli Eğitme (PyTorch)
-Modeli sıfırdan eğitmek için train_pytorch.py script'ini çalıştırabilirsiniz.
+Bu repositoride önceden eğitilmiş model dosyaları (`.pth`) paylaşılmamaktadır. Çıkarım ve değerlendirme adımlarını çalıştırabilmek için öncelikle modeli kendiniz eğitmelisiniz.
 
-`python train_pytorch.py`
+Modeli sıfırdan eğitmek için `notebooks/2_PyTorch_Transformer_Egitimi.ipynb` not defterini çalıştırın. Bu script, **öncelikle `en2tr_train.txt` dosyasını okuyarak kaynak ve hedef dil için kelime dağarcıklarını (tokenizer) oluşturur.** Eğitim tamamlandığında, `checkpoints` klasörü altına hem modelin ağırlıklarını (`best_model.pth`) hem de tokenizer'ları içeren tam durum dosyasını (`last_checkpoint.pth`) kaydedecektir.
 
-Bu script, eğitim sonunda model_checkpoints klasörü altına best_model.pth (en iyi modelin ağırlıkları) ve last_checkpoint.pth (eğitimin son durumunu içeren tam checkpoint) dosyalarını kaydedecektir.
+### **4. Çeviri Yapma ve Analiz**
 
-### 3. Çeviri Yapma (NumPy)
-Eğitilmiş bir modelle çeviri yapmak için inference_numpy.py script'ini kullanabilirsiniz. Bu script, checkpoint dosyalarını yükleyerek interaktif bir şekilde sizden İngilizce cümleler alıp Türkçe'ye çevirecektir.
+Modelinizi eğittikten sonra, aşağıdaki not defterlerini çalıştırarak sonuçları elde edebilirsiniz. Bu not defterleri, çalışmak için `checkpoints` klasöründeki dosyaları okuyarak gerekli model ağırlıklarını ve tokenizer'ları yükleyecektir.
 
-`python inference_numpy.py`
+* `notebooks/3_NumPy_Cikarim_Motoru_ve_Dogrulama.ipynb`: Eğitilmiş modeli kullanarak interaktif çeviri yapar.
+* `notebooks/4_Dikkat_Matrislerinin_Analizi_ve_Gorsellestirilmesi.ipynb`: Belirli bir cümlenin dikkat haritalarını üretir ve görselleştirir.
+* `notebooks/5_Performans_Degerlendirme_(BLEU_ve_Hiz_Testleri).ipynb`: Modelin BLEU skorunu ve çıkarım hızını hesaplar.
 
-### 4. Dikkat Haritalarını Üretme
-Belirli bir cümlenin dikkat haritalarını (Encoder Self-Attention, Decoder Cross-Attention, Decoder Masked Self-Attention) üretmek ve görselleştirmek için visualize_attention.py script'ini çalıştırın.
+---
 
-`python visualize_attention.py`
+## **Katkıda Bulunma (Contributing)**
 
-Bu, /results klasörü altına ısı haritası görsellerini (.png) kaydedecektir.
+Bu projenin gelişmesine yardımcı olmak isterseniz, her türlü katkıya açığız! Hata bildirimleri, özellik önerileri ve kod katkıları projenin daha iyi bir kaynak haline gelmesine yardımcı olur.
 
-### Lisans
-Bu proje, MIT Lisansı altında lisanslanmıştır. Detaylar için LICENSE dosyasına bakınız.
+### **Hata Bildirimi ve Öneriler**
+Eğer kodda veya dokümantasyonda bir hata fark ederseniz ya da bir geliştirme öneriniz varsa, lütfen bu repositorinin **"Issues"** sekmesini kullanarak yeni bir başlık açmaktan çekinmeyin.
 
-### Referanslar
-[1] Vaswani, A., et al. (2017). "Attention Is All You Need". NeurIPS.
+### **Kod Katkısı (Pull Requests)**
+Koda doğrudan katkıda bulunmak isterseniz, standart "fork & pull request" iş akışını izleyebilirsiniz:
+1.  Bu repoyu kendi hesabınıza **Fork**'layın.
+2.  Yeni bir özellik veya düzeltme için kendi **Branch**'inizi oluşturun (`git checkout -b ozellik/yeni-gorsellestirme`).
+3.  Değişikliklerinizi yapın ve **Commit**'leyin.
+4.  Oluşturduğunuz Branch'i kendi reponuza **Push**'layın (`git push origin ozellik/yeni-gorsellestirme`).
+5.  GitHub üzerinden bu repoya bir **Pull Request** açarak değişikliklerinizi açıklayın.
+
+---
+
+## **Lisans**
+
+Bu proje, MIT Lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakınız.
+
+## **Referanslar**
+
+\[1\] Vaswani, A., et al. (2017). "Attention Is All You Need". *NeurIPS*.
