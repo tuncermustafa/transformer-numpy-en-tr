@@ -55,6 +55,23 @@ Modelinizi eğittikten sonra, aşağıdaki not defterlerini çalıştırarak son
 
 ---
 
+## **Katkıda Bulunma (Contributing)**
+
+Bu projenin gelişmesine yardımcı olmak isterseniz, her türlü katkıya açığız! Hata bildirimleri, özellik önerileri ve kod katkıları projenin daha iyi bir kaynak haline gelmesine yardımcı olur.
+
+### **Hata Bildirimi ve Öneriler**
+Eğer kodda veya dokümantasyonda bir hata fark ederseniz ya da bir geliştirme öneriniz varsa, lütfen bu repositorinin **"Issues"** sekmesini kullanarak yeni bir başlık açmaktan çekinmeyin.
+
+### **Kod Katkısı (Pull Requests)**
+Koda doğrudan katkıda bulunmak isterseniz, standart "fork & pull request" iş akışını izleyebilirsiniz:
+1.  Bu repoyu kendi hesabınıza **Fork**'layın.
+2.  Yeni bir özellik veya düzeltme için kendi **Branch**'inizi oluşturun (`git checkout -b ozellik/yeni-gorsellestirme`).
+3.  Değişikliklerinizi yapın ve **Commit**'leyin.
+4.  Oluşturduğunuz Branch'i kendi reponuza **Push**'layın (`git push origin ozellik/yeni-gorsellestirme`).
+5.  GitHub üzerinden bu repoya bir **Pull Request** açarak değişikliklerinizi açıklayın.
+
+---
+
 ## **Lisans**
 
 Bu proje, MIT Lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakınız.
